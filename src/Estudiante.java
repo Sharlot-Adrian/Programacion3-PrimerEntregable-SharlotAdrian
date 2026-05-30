@@ -1,9 +1,13 @@
+import java.util.ArrayList;
+
 public class Estudiante extends Persona{
     
     private String matricula;
     private int edad;
     private String carrera;
     private String fechaInscripcion;
+
+    private ArrayList<Materia> materiasCursadas = new ArrayList<>();
 
     public Estudiante(String nombre, String apellido, String matricula, int edad, String carrera, String fechaInscripcion){
         super(nombre,apellido);
@@ -55,5 +59,9 @@ public class Estudiante extends Persona{
         System.out.println("Edad: " + getEdad());
         System.out.println("Carrera: " + getCarrera());
         System.out.println("Fecha de inscripcion: " + getFechaInscripcion());
+    }
+
+    public void agregarMateria(Materia materia){
+        materiasCursadas.add(materia);
     }
 }
