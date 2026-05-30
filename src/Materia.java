@@ -43,4 +43,13 @@ public class Materia {
     public void setCalificacion(double calificacion){
         this.calificacion = calificacion;
     }
+
+    public void mostrarInformacion(){
+        System.out.println("[\nINFORMACION DE LA MATERIA: " + getNombreMateria() + "]");
+        System.out.println("*------------------------------------------*");
+        System.out.println("Codigo: " + getCodigo());
+        System.out.println("Nombre de la materia: " + getNombreMateria());
+        System.out.println("Cantidad de creditos: " + getCantidadCreditos());
+      
+    }
 }

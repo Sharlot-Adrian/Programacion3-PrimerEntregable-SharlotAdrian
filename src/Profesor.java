@@ -27,7 +27,7 @@ public class Profesor extends Persona {
 
     @Override
     public void mostrarInformacion(){
-        System.out.println("[INFORMACION DEL PROFESOR: " + getNombre() + " " + getApellido()+ "]");
+        System.out.println("[\nINFORMACION DEL PROFESOR: " + getNombre() + " " + getApellido()+ "]");
         System.out.println("*------------------------------------------*");
         System.out.println("Codigo: " + getCodigo());
         System.out.println("Nombre: " + getNombre());
