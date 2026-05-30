@@ -2,10 +2,10 @@ public class Materia {
     
     private String codigo;
     private String nombreMateria;
-    private int cantidadCreditos;
+    private double cantidadCreditos;
     private double calificacion;
 
-    public Materia(String codigo, String nombreMateria, int cantidadCreditos){
+    public Materia(String codigo, String nombreMateria, double cantidadCreditos){
         setCodigo(codigo);
         setNombreMateria(nombreMateria);
         setCantidadCreditos(cantidadCreditos); 
@@ -20,7 +20,7 @@ public class Materia {
         return nombreMateria;
     }
 
-    public int getCantidadCreditos(){
+    public double getCantidadCreditos(){
         return cantidadCreditos;
     }
 
@@ -36,7 +36,7 @@ public class Materia {
         this.nombreMateria = nombreMateria;
     }
 
-    public void setCantidadCreditos(int cantidadCreditos){
+    public void setCantidadCreditos(double cantidadCreditos){
         this.cantidadCreditos = cantidadCreditos;
     }
 
