@@ -1,5 +1,5 @@
-Public class Main{
-    public void static main(Strings [] public static void main(String[] args) {
+public class Main{
+    public static void main(String[] args) {
         
-    }}
+    }
 }
