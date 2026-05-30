@@ -5,7 +5,7 @@ public class SistemaGestion {
     
     Scanner scanner = new Scanner(System.in);
     ArrayList<Profesor> registroProfesores = new ArrayList<>();
-    ArrayList<Estudiante> registroEstudiantes = new ArrayList<>();
+    ArrayList<Persona> registroEstudiantes = new ArrayList<>();
 
     public void menu(){
         int opcion = 0;
@@ -31,7 +31,36 @@ public class SistemaGestion {
             scanner.nextLine();
 
             switch(opcion){
-                case 1:{
+                case 1:{ //Atributos de estudiante: String nombre, String apellido, 
+                // String matricula, int edad, String carrera, String fechaInscripcion
+                    System.out.println("[\n REGISTRAR ESTUDIANTE ]");
+                    System.out.println("*------------------------------------------*");
+                    System.out.println("Ingrese el nombre del estudiante: ");
+                    String nombre = scanner.nextLine();
+
+                    System.out.println("Ingrese el apellido del estudiante: ");
+                    String apellido = scanner.nextLine();
+
+                    System.out.println("Ingrese la matricula del estudiante");
+                    String matricula = scanner.nextLine();
+
+                    System.out.println("Ingrese la edad del estudiante: ");
+                    int edad = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.println("Ingrese la carrera del estudiante: ");
+                    String carrera = scanner.nextLine();
+
+                    System.out.println("Ingrese la fecha de inscripcion del estudiante: ");
+                    String fechaInscripcion = scanner.nextLine();
+
+                    System.out.println("*------------------------------------------*");
+
+                    Persona est = new Estudiante(nombre, apellido, matricula, edad, carrera, fechaInscripcion);
+                    registroEstudiantes.add(est);
+                    System.out.println("[ Se ha agregado un estudiante satisfactoriamente!]");
+                    System.out.println("*------------------------------------------*");
+
                     break;
                 }
                 case 2:{
