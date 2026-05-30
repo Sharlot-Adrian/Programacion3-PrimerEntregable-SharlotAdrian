@@ -2,28 +2,47 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class SistemaGestion {
-    
+
     Scanner scanner = new Scanner(System.in);
     ArrayList<Persona> registroProfesores = new ArrayList<>();
-    ArrayList<Persona> registroEstudiantes = new ArrayList<>();
+    ArrayList<Estudiante> registroEstudiantes = new ArrayList<>();
     ArrayList<Materia> registroMaterias = new ArrayList<>();
 
-    public void recorrerRegistroEstudiantes(){
-        for(int i = 0; i < registroEstudiantes.size(); i++){
+    public void recorrerRegistroEstudiantes() {
+        for (int i = 0; i < registroEstudiantes.size(); i++) {
             registroEstudiantes.get(i).mostrarInformacion();
         }
     }
 
-     public void recorrerRegistroMaterias(){
-        for(int i = 0; i < registroMaterias.size(); i++){
+    public void recorrerRegistroMaterias() {
+
+        for (int i = 0; i < registroMaterias.size(); i++) {
             registroMaterias.get(i).mostrarInformacion();
         }
     }
 
-    public void menu(){
+    public Materia inscribirMateria() {
+
+        String respuesta = "No";
+        for (int i = 0; i < registroMaterias.size(); i++) {
+            registroMaterias.get(i).mostrarInformacion();
+            System.out.println("\nDesea incribir al estudiante en esta materia? [Si/No] ");
+            respuesta = scanner.nextLine().toUpperCase();
+
+            if (respuesta.equals("SI"))
+                return new Materia(registroMaterias.get(i).getCodigo(), registroMaterias.get(i).getNombreMateria(),
+                        registroMaterias.get(i).getCantidadCreditos());
+            else
+                continue;
+        }
+
+        return null;
+    }
+
+    public void menu() {
         int opcion = 0;
 
-        do{
+        do {
             System.out.println("============================================");
             System.out.println("        SISTEMA DE GESTION ACADEMICA        ");
             System.out.println("============================================");
@@ -43,9 +62,9 @@ public class SistemaGestion {
             opcion = scanner.nextInt();
             scanner.nextLine();
 
-            switch(opcion){
-                case 1:{ //Atributos de estudiante: String nombre, String apellido, 
-                // String matricula, int edad, String carrera, String fechaInscripcion
+            switch (opcion) {
+                case 1: { // Atributos de estudiante: String nombre, String apellido,
+                    // String matricula, int edad, String carrera, String fechaInscripcion
                     System.out.println("\n[ REGISTRAR ESTUDIANTE ]");
                     System.out.println("*------------------------------------------*");
                     System.out.println("Ingrese el nombre del estudiante: ");
@@ -69,15 +88,15 @@ public class SistemaGestion {
 
                     System.out.println("*------------------------------------------*");
 
-                    Persona est = new Estudiante(nombre, apellido, matricula, edad, carrera, fechaInscripcion);
-                    registroEstudiantes.add(est);
+                    registroEstudiantes
+                            .add(new Estudiante(nombre, apellido, matricula, edad, carrera, fechaInscripcion));
                     System.out.println("[ Se ha agregado un estudiante satisfactoriamente!]");
                     System.out.println("*------------------------------------------*");
 
                     break;
                 }
-                case 2:{
-                    //Atributos de profesor: String nombre, String apellido, 
+                case 2: {
+                    // Atributos de profesor: String nombre, String apellido,
                     // String codigo, String especialidad
                     System.out.println("\n[ REGISTRAR PROFESOR ]");
                     System.out.println("*------------------------------------------*");
@@ -102,9 +121,9 @@ public class SistemaGestion {
 
                     break;
                 }
-                case 3:{
+                case 3: {
 
-                    //Atributos de materia: String codigo, 
+                    // Atributos de materia: String codigo,
                     // String nombreMateria, int cantidadCreditos
                     System.out.println("\n[ REGISTRAR MATERIA ]");
                     System.out.println("*------------------------------------------*");
@@ -116,6 +135,7 @@ public class SistemaGestion {
 
                     System.out.println("Ingrese la cantidad de creditos de la materia");
                     int cantidadCreditos = scanner.nextInt();
+                    scanner.nextLine();
 
                     System.out.println("*------------------------------------------*");
                     registroMaterias.add(new Materia(codigo, nombre, cantidadCreditos));
@@ -124,38 +144,59 @@ public class SistemaGestion {
 
                     break;
                 }
-                case 4:{
+                case 4: {
+                    System.out.println("\n[ ASIGNAR MATERIA A ESTUDIANTE ]");
+                    System.out.println("*------------------------------------------*");
+
+                    System.out.println("Ingrese la matricula del estudiante al que quiere agregar una materia: ");
+                    String matricula = scanner.nextLine();
+
+                    if (!registroMaterias.isEmpty()) {
+                        for (int i = 0; i < registroEstudiantes.size(); i++) {
+                            if (registroEstudiantes.get(i).getMatricula().equals(matricula)) {
+                                Materia materia = inscribirMateria();
+
+                                if (materia != null) {
+                                    registroEstudiantes.get(i).agregarMateria(materia);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else
+                        System.out.println("No hay materias disponibles en registro aun.");
+                    
                     break;
                 }
-                case 5:{
+                case 5: {
                     break;
                 }
-                case 6:{
+                case 6: {
                     break;
                 }
-                case 7:{
+                case 7: {
                     System.out.println("\n[ MOSTRAR ESTUDIANTES ]");
                     recorrerRegistroEstudiantes();
                     break;
                 }
-                case 8:{
+                case 8: {
 
                     System.out.println("\n[ MOSTRAR MATERIAS ]");
                     recorrerRegistroMaterias();
-                    
+
                     break;
                 }
-                case 9:{
+                case 9: {
                     break;
                 }
-                case 10:{
+                case 10: {
                     break;
                 }
-                default:{
+                default: {
                     System.out.println("Esa opcion no es valida.");
                     break;
                 }
             }
-        }while(opcion != 10);
+        } while (opcion != 10);
     }
 }
