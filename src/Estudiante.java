@@ -55,7 +55,7 @@ public class Estudiante extends Persona{
 
     @Override
     public void mostrarInformacion(){
-        System.out.println("[\nINFORMACION DEL ESTUDIANTE: " + getNombre() + " " + getApellido()+ "]");
+        System.out.println("\n[ INFORMACION DEL ESTUDIANTE: " + getNombre() + " " + getApellido()+ "]");
         System.out.println("*------------------------------------------*");
         System.out.println("Matricula: " + getMatricula());
         System.out.println("Nombre: " + getNombre());

@@ -21,6 +21,24 @@ public class SistemaGestion {
         }
     }
 
+    public void recorrerRegistroEstudiantesNombre(String nombre) {
+        for (int i = 0; i < registroEstudiantes.size(); i++) {
+            if (registroEstudiantes.get(i).getNombre().equalsIgnoreCase(nombre)){
+                System.out.println("\n[ El perfil pertenece a: ]");
+                registroEstudiantes.get(i).mostrarInformacion();
+            }
+        }
+    }
+
+    public void recorrerRegistroEstudiantesMat(String matricula) {
+        for (int i = 0; i < registroEstudiantes.size(); i++) {
+            if (registroEstudiantes.get(i).getMatricula().equals(matricula)){
+                System.out.println("\n[ El perfil pertenece a: ]");
+                registroEstudiantes.get(i).mostrarInformacion();
+            }
+        }
+    }
+
     public Materia inscribirMateria() {
 
         String respuesta = "No";
@@ -82,7 +100,8 @@ public class SistemaGestion {
 
                 }
             }
-        } else
+        } 
+        else
             System.out.println("No hay estudiantes disponibles en registro aun.");
     }
 
@@ -220,6 +239,20 @@ public class SistemaGestion {
                     break;
                 }
                 case 6: {
+                    System.out.println("\n[ BUSCAR ESTUDIANTES ]");
+                    System.out.println("Desea buscar por nombre o matricula?");
+                    String respuesta = scanner.nextLine();
+
+                    if (respuesta.equalsIgnoreCase("nombre")){
+                        System.out.println("Ingrese el nombre: ");
+                        String nombre = scanner.nextLine();
+                        recorrerRegistroEstudiantesNombre(nombre);
+                    }
+                    else if (respuesta.equalsIgnoreCase("matricula")){
+                        System.out.println("Ingrese la matricula: ");
+                        String matricula = scanner.nextLine();
+                        recorrerRegistroEstudiantesMat(matricula);
+                    }
                     break;
                 }
                 case 7: {
