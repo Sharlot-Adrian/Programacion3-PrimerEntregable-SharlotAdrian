@@ -17,6 +17,10 @@ public class Estudiante extends Persona{
         setFechaInscripcion(fechaInscripcion);
     }
 
+    public ArrayList<Materia> getMateriasCursadas(){
+        return materiasCursadas;
+    }
+
     public String getMatricula(){
         return matricula;
     }

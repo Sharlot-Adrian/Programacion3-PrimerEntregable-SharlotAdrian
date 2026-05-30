@@ -59,6 +59,33 @@ public class SistemaGestion {
 
     }
 
+    public void agregarCalificacion (String matricula, String codigo, double calif){
+
+        if (!registroEstudiantes.isEmpty()) {
+            for (int i = 0; i < registroEstudiantes.size(); i++) {
+
+                if (registroEstudiantes.get(i).getMatricula().equals(matricula)) {
+                    System.out.println("Matricula encontrada! ");
+
+                    if(!registroEstudiantes.get(i).getMateriasCursadas().isEmpty()){
+
+                        for (int j = 0; j < registroEstudiantes.get(i).getMateriasCursadas().size(); j++ ){
+                            if (registroEstudiantes.get(i).getMateriasCursadas().get(j).getCodigo().equals(codigo)){
+                                registroEstudiantes.get(i).getMateriasCursadas().get(j).setCalificacion(calif);
+                                System.out.println("Calificacion registrada.");
+                                break;
+                            }
+
+                        }
+
+                    }
+
+                }
+            }
+        } else
+            System.out.println("No hay estudiantes disponibles en registro aun.");
+    }
+
     public void menu() {
         int opcion = 0;
 
