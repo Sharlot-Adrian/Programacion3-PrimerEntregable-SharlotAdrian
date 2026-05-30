@@ -5,7 +5,7 @@ public class Materia {
     private int cantidadCreditos;
     private double calificacion;
 
-    public Materia(String codigo, String nombreMateria, int cantidadCreditos, double calificacion){
+    public Materia(String codigo, String nombreMateria, int cantidadCreditos){
         setCodigo(codigo);
         setNombreMateria(nombreMateria);
         setCantidadCreditos(cantidadCreditos); 
