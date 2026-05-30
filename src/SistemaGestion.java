@@ -103,10 +103,10 @@ public class SistemaGestion {
                     String nombre = scanner.nextLine();
 
                     System.out.println("Ingrese la cantidad de creditos de la materia");
-                    String cantidadCreditos = scanner.nextLine();
+                    int cantidadCreditos = scanner.nextInt();
 
                     System.out.println("*------------------------------------------*");
-                    registroMaterias.add(new Materia(codigo, nombre, opcion));
+                    registroMaterias.add(new Materia(codigo, nombre, cantidadCreditos));
                     System.out.println("[ Se ha agregado una materia satisfactoriamente!]");
                     System.out.println("*------------------------------------------*");
 
