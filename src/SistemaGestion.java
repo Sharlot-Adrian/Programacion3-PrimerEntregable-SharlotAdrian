@@ -129,8 +129,8 @@ public class SistemaGestion {
             scanner.nextLine();
 
             switch (opcion) {
-                case 1: { // Atributos de estudiante: String nombre, String apellido,
-                    // String matricula, int edad, String carrera, String fechaInscripcion
+                case 1: { 
+                    
                     System.out.println("\n[ REGISTRAR ESTUDIANTE ]");
                     System.out.println("*------------------------------------------*");
                     System.out.println("Ingrese el nombre del estudiante: ");
@@ -152,18 +152,12 @@ public class SistemaGestion {
                     System.out.println("Ingrese la fecha de inscripcion del estudiante: ");
                     String fechaInscripcion = scanner.nextLine();
 
-                    System.out.println("*------------------------------------------*");
-
-                    registroEstudiantes
-                            .add(new Estudiante(nombre, apellido, matricula, edad, carrera, fechaInscripcion));
-                    System.out.println("[ Se ha agregado un estudiante satisfactoriamente!]");
-                    System.out.println("*------------------------------------------*");
-
+                    registroEstudiantes.add(new Estudiante(nombre, apellido, matricula, edad, carrera, fechaInscripcion));
+                    System.out.println("\n[ Se ha agregado un estudiante satisfactoriamente!]");
                     break;
                 }
                 case 2: {
-                    // Atributos de profesor: String nombre, String apellido,
-                    // String codigo, String especialidad
+          
                     System.out.println("\n[ REGISTRAR PROFESOR ]");
                     System.out.println("*------------------------------------------*");
                     System.out.println("Ingrese el nombre del profesor: ");
@@ -188,9 +182,7 @@ public class SistemaGestion {
                     break;
                 }
                 case 3: {
-
-                    // Atributos de materia: String codigo,
-                    // String nombreMateria, int cantidadCreditos
+            
                     System.out.println("\n[ REGISTRAR MATERIA ]");
                     System.out.println("*------------------------------------------*");
                     System.out.println("Ingrese el codigo de la materia: ");
@@ -207,7 +199,6 @@ public class SistemaGestion {
                     registroMaterias.add(new Materia(codigo, nombre, cantidadCreditos));
                     System.out.println("[ Se ha agregado una materia satisfactoriamente!]");
                     System.out.println("*------------------------------------------*");
-
                     break;
                 }
                 case 4: {
@@ -261,10 +252,8 @@ public class SistemaGestion {
                     break;
                 }
                 case 8: {
-
                     System.out.println("\n[ MOSTRAR MATERIAS ]");
                     recorrerRegistroMaterias();
-
                     break;
                 }
                 case 9: {
