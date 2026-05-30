@@ -45,5 +45,15 @@ public class Estudiante extends Persona{
         this.fechaInscripcion = fechaInscripcion;
     }
 
-
+    @Override
+    public void mostrarInformacion(){
+        System.out.println("[INFORMACION DEL ESTUDIANTE: " + getNombre() + " " + getApellido()+ "]");
+        System.out.println("*------------------------------------------*");
+        System.out.println("Matricula: " + getMatricula());
+        System.out.println("Nombre: " + getNombre());
+        System.out.println("Apellido: " + getApellido());
+        System.out.println("Edad: " + getEdad());
+        System.out.println("Carrera: " + getCarrera());
+        System.out.println("Fecha de inscripcion: " + getFechaInscripcion());
+    }
 }

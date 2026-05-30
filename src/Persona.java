@@ -23,4 +23,6 @@ public abstract class Persona {
     public void setApellido(String apellido){
         this.apellido = apellido;
     }
+
+    public abstract void mostrarInformacion();
 }
