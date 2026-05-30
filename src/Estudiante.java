@@ -117,4 +117,21 @@ public class Estudiante extends Persona {
         return calcularSumaPuntos()/sumaCreditos;
 
     }
+
+    public void mostrarPerfilResumido() {
+        System.out.println("\n[ INFORMACION DEL ESTUDIANTE: " + getNombre() + " " + getApellido() + "]");
+        System.out.println("*------------------------------------------*");
+        System.out.println("Matricula: " + getMatricula());
+        System.out.println("Nombre: " + getNombre());
+        System.out.println("Apellido: " + getApellido());
+        System.out.println("Promedio *base 4*: " + calcPromedio());
+
+        if (calcPromedio() >= 3){
+            System.out.println("\n[Estudiante aprovado!]");
+        }
+        else
+            System.out.println("\n[Estudiante Reprobado.]");
+
+
+    }
 }

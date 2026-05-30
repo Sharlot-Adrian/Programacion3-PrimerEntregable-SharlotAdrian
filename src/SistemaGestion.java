@@ -14,6 +14,12 @@ public class SistemaGestion {
         }
     }
 
+    public void recorrerRegistroEstudiantesPromedio() {
+        for (int i = 0; i < registroEstudiantes.size(); i++) {
+            registroEstudiantes.get(i).mostrarPerfilResumido();
+        }
+    }
+
     public void recorrerRegistroMaterias() {
 
         for (int i = 0; i < registroMaterias.size(); i++) {
@@ -130,7 +136,7 @@ public class SistemaGestion {
 
             switch (opcion) {
                 case 1: { 
-                    
+
                     System.out.println("\n[ REGISTRAR ESTUDIANTE ]");
                     System.out.println("*------------------------------------------*");
                     System.out.println("Ingrese el nombre del estudiante: ");
@@ -257,6 +263,8 @@ public class SistemaGestion {
                     break;
                 }
                 case 9: {
+                    System.out.println("\n[ MOSTRAR REPORTE DE PROMEDIOS ]");
+                    recorrerRegistroEstudiantesPromedio();
                     break;
                 }
                 case 10: {
