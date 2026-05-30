@@ -8,6 +8,20 @@ public class SistemaGestion {
     ArrayList<Persona> registroEstudiantes = new ArrayList<>();
     ArrayList<Materia> registroMaterias = new ArrayList<>();
 
+    public void recorrerRegistroEstudiantes(){
+        for(int i = 0; i < registroEstudiantes.size(); i++){
+            System.out.println("\n");
+            registroEstudiantes.get(i).mostrarInformacion();
+        }
+    }
+
+     public void recorrerRegistroMaterias(){
+        for(int i = 0; i < registroMaterias.size(); i++){
+            System.out.println("\n");
+            registroMaterias.get(i).mostrarInformacion();
+        }
+    }
+
     public void menu(){
         int opcion = 0;
 
@@ -122,6 +136,8 @@ public class SistemaGestion {
                     break;
                 }
                 case 7:{
+                    System.out.println("\n[ MOSTRAR ESTUDIANTES ]");
+                    recorrerRegistroEstudiantes();
                     break;
                 }
                 case 8:{
