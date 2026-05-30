@@ -6,6 +6,7 @@ public class SistemaGestion {
     Scanner scanner = new Scanner(System.in);
     ArrayList<Persona> registroProfesores = new ArrayList<>();
     ArrayList<Persona> registroEstudiantes = new ArrayList<>();
+    ArrayList<Materia> registroMaterias = new ArrayList<>();
 
     public void menu(){
         int opcion = 0;
@@ -90,6 +91,25 @@ public class SistemaGestion {
                     break;
                 }
                 case 3:{
+
+                    //Atributos de materia: String codigo, 
+                    // String nombreMateria, int cantidadCreditos
+                    System.out.println("[\n REGISTRAR MATERIA ]");
+                    System.out.println("*------------------------------------------*");
+                    System.out.println("Ingrese el codigo de la materia: ");
+                    String codigo = scanner.nextLine();
+
+                    System.out.println("Ingrese el nombre de la materia: ");
+                    String nombre = scanner.nextLine();
+
+                    System.out.println("Ingrese la cantidad de creditos de la materia");
+                    String cantidadCreditos = scanner.nextLine();
+
+                    System.out.println("*------------------------------------------*");
+                    registroMaterias.add(new Materia(codigo, nombre, opcion));
+                    System.out.println("[ Se ha agregado una materia satisfactoriamente!]");
+                    System.out.println("*------------------------------------------*");
+
                     break;
                 }
                 case 4:{
