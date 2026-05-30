@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class SistemaGestion {
     
     Scanner scanner = new Scanner(System.in);
-    ArrayList<Profesor> registroProfesores = new ArrayList<>();
+    ArrayList<Persona> registroProfesores = new ArrayList<>();
     ArrayList<Persona> registroEstudiantes = new ArrayList<>();
 
     public void menu(){
@@ -64,6 +64,29 @@ public class SistemaGestion {
                     break;
                 }
                 case 2:{
+                    //Atributos de profesor: String nombre, String apellido, 
+                    // String codigo, String especialidad
+                    System.out.println("[\n REGISTRAR PROFESOR ]");
+                    System.out.println("*------------------------------------------*");
+                    System.out.println("Ingrese el nombre del profesor: ");
+                    String nombre = scanner.nextLine();
+
+                    System.out.println("Ingrese el apellido del profesor: ");
+                    String apellido = scanner.nextLine();
+
+                    System.out.println("Ingrese el codigo del profesor");
+                    String codigo = scanner.nextLine();
+
+                    System.out.println("Ingrese la especialidad del profesor: ");
+                    String especialidad = scanner.nextLine();
+
+                    System.out.println("*------------------------------------------*");
+
+                    Persona prof = new Profesor(nombre, apellido, codigo, especialidad);
+                    registroProfesores.add(prof);
+                    System.out.println("[ Se ha agregado un profesor satisfactoriamente!]");
+                    System.out.println("*------------------------------------------*");
+
                     break;
                 }
                 case 3:{
