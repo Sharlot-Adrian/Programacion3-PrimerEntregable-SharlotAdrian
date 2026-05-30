@@ -45,7 +45,7 @@ public class Materia {
     }
 
     public void mostrarInformacion(){
-        System.out.println("[\nINFORMACION DE LA MATERIA: " + getNombreMateria() + "]");
+        System.out.println("\n[ INFORMACION DE LA MATERIA: " + getNombreMateria() + "]");
         System.out.println("*------------------------------------------*");
         System.out.println("Codigo: " + getCodigo());
         System.out.println("Nombre de la materia: " + getNombreMateria());

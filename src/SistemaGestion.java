@@ -30,13 +30,33 @@ public class SistemaGestion {
             respuesta = scanner.nextLine().toUpperCase();
 
             if (respuesta.equals("SI"))
-                return new Materia(registroMaterias.get(i).getCodigo(), registroMaterias.get(i).getNombreMateria(),
-                        registroMaterias.get(i).getCantidadCreditos());
+                return new Materia(registroMaterias.get(i).getCodigo(), registroMaterias.get(i).getNombreMateria(), registroMaterias.get(i).getCantidadCreditos());
             else
                 continue;
         }
 
         return null;
+    }
+
+    public void conectarConEstudiante(String matricula) {
+
+        if (!registroMaterias.isEmpty()) {
+            for (int i = 0; i < registroEstudiantes.size(); i++) {
+
+                if (registroEstudiantes.get(i).getMatricula().equals(matricula)) {
+                    System.out.println("Matricula encontrada! ");
+                    Materia materia = inscribirMateria();
+
+                    if (materia != null) {
+                        registroEstudiantes.get(i).agregarMateria(materia);
+                        System.out.println("Materia agregada!");
+                        break;
+                    }
+                }
+            }
+        } else
+            System.out.println("No hay materias disponibles en registro aun.");
+
     }
 
     public void menu() {
@@ -133,7 +153,7 @@ public class SistemaGestion {
                     System.out.println("Ingrese el nombre de la materia: ");
                     String nombre = scanner.nextLine();
 
-                    System.out.println("Ingrese la cantidad de creditos de la materia");
+                    System.out.println("Ingrese la cantidad de creditos de la materia: ");
                     int cantidadCreditos = scanner.nextInt();
                     scanner.nextLine();
 
@@ -150,22 +170,8 @@ public class SistemaGestion {
 
                     System.out.println("Ingrese la matricula del estudiante al que quiere agregar una materia: ");
                     String matricula = scanner.nextLine();
+                    conectarConEstudiante(matricula);
 
-                    if (!registroMaterias.isEmpty()) {
-                        for (int i = 0; i < registroEstudiantes.size(); i++) {
-                            if (registroEstudiantes.get(i).getMatricula().equals(matricula)) {
-                                Materia materia = inscribirMateria();
-
-                                if (materia != null) {
-                                    registroEstudiantes.get(i).agregarMateria(materia);
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                    else
-                        System.out.println("No hay materias disponibles en registro aun.");
-                    
                     break;
                 }
                 case 5: {
