@@ -10,14 +10,12 @@ public class SistemaGestion {
 
     public void recorrerRegistroEstudiantes(){
         for(int i = 0; i < registroEstudiantes.size(); i++){
-            System.out.println("\n");
             registroEstudiantes.get(i).mostrarInformacion();
         }
     }
 
      public void recorrerRegistroMaterias(){
         for(int i = 0; i < registroMaterias.size(); i++){
-            System.out.println("\n");
             registroMaterias.get(i).mostrarInformacion();
         }
     }
@@ -48,7 +46,7 @@ public class SistemaGestion {
             switch(opcion){
                 case 1:{ //Atributos de estudiante: String nombre, String apellido, 
                 // String matricula, int edad, String carrera, String fechaInscripcion
-                    System.out.println("[\n REGISTRAR ESTUDIANTE ]");
+                    System.out.println("\n[ REGISTRAR ESTUDIANTE ]");
                     System.out.println("*------------------------------------------*");
                     System.out.println("Ingrese el nombre del estudiante: ");
                     String nombre = scanner.nextLine();
@@ -81,7 +79,7 @@ public class SistemaGestion {
                 case 2:{
                     //Atributos de profesor: String nombre, String apellido, 
                     // String codigo, String especialidad
-                    System.out.println("[\n REGISTRAR PROFESOR ]");
+                    System.out.println("\n[ REGISTRAR PROFESOR ]");
                     System.out.println("*------------------------------------------*");
                     System.out.println("Ingrese el nombre del profesor: ");
                     String nombre = scanner.nextLine();
@@ -108,7 +106,7 @@ public class SistemaGestion {
 
                     //Atributos de materia: String codigo, 
                     // String nombreMateria, int cantidadCreditos
-                    System.out.println("[\n REGISTRAR MATERIA ]");
+                    System.out.println("\n[ REGISTRAR MATERIA ]");
                     System.out.println("*------------------------------------------*");
                     System.out.println("Ingrese el codigo de la materia: ");
                     String codigo = scanner.nextLine();
@@ -141,6 +139,10 @@ public class SistemaGestion {
                     break;
                 }
                 case 8:{
+
+                    System.out.println("\n[ MOSTRAR MATERIAS ]");
+                    recorrerRegistroMaterias();
+                    
                     break;
                 }
                 case 9:{
