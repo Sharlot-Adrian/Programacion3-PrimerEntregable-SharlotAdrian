@@ -202,6 +202,21 @@ public class SistemaGestion {
                     break;
                 }
                 case 5: {
+                    System.out.println("\n[ ASIGNAR NOTA A ESTUDIANTE ]");
+                    System.out.println("*------------------------------------------*");
+
+                    System.out.println("Ingrese la matricula del estudiante: ");
+                    String matricula = scanner.nextLine();
+
+                    System.out.println("Ingrese el codigo de la materia: ");
+                    String codigo = scanner.nextLine();
+
+                    System.out.println("Ingrese la calificacion: ");
+                    double calif = scanner.nextDouble();
+                    scanner.nextLine();
+                    
+                    agregarCalificacion(matricula, codigo, calif);
+
                     break;
                 }
                 case 6: {
