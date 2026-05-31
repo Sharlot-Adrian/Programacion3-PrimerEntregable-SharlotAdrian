@@ -1,0 +1,32 @@
+Cómo usar el sistema:
+
+El sistema permite la gestión de profesores, estudiantes y materias. Para utilizarlo correctamente, debe seguir la siguiente secuencia:
+
+1) Se agregan estudiantes, uno por uno. En las evidencias podemos observar a Juan Pérez y a María López con sus datos.
+2) Se agregan profesores, uno por uno. En las evidencias podemos observar al Profesor Pablo Santana.
+3) Se agregan las materias que estarán disponibles en el sistema, una por una.
+
+Hasta aquí, todo consiste en agregar los elementos del sistema. En las evidencias, se agregan las materias: Matemática Financiera, Contabilidad I y Economía, para el estudiante de contabilidad Juan Pérez. Además, se agregan las materias Química, Biología II y Anatomía para María López, estudiante de Medicina.
+
+4) Para asignar materias, el sistema permite visualizar todas las que fueron anteriormente agregadas en el paso 3. Para asignar una materia a un estudiante se requiere digitar su matrícula.
+5) Para asignar una calificación, es necesario digitar la matrícula del estudiante, el código de la materia y, finalmente, la calificación obtenida por el estudiante.
+6) El sistema permite buscar estudiantes por el nombre o por matrícula, solo es necesario especificar cuál será el identificador utilizado, luego, digite el nombre o la matrícula.
+7) El sistema permite visualizar a todos los estudiantes registrados previamente.
+8) El sistema permite visualizar todas las materias registradas previamente.
+
+9) Para calcular el promedio, se utilizan los valores de cantidad de créditos y calificaciones registradas, que fueron obtenidas en anteriores pasos. En el entregable, para calcular el índice de ambos estudiantes y determinar si aprobaron o reprobaron, los siguientes valores fueron utilizados:
+
+Juan Pérez - Matemática Financiera (4 créditos y la calificación del estudiante fue: 94)
+Juan Pérez - Contabilidad ( 3 créditos y la calificación del estudiante fue: 95)
+Juan Perez - Economía (2 créditos y la calificación del estudiante fue: 98)
+
+María López - Quimica I (4 créditos y la calificación del estudiante fue: 60)
+María López - Biología II (3 créditos y la calificación del estudiante fue: 70)
+María López - Anatomia  (3 créditos y la calificación del estudiante fue: 68)
+
+Por lo tanto, Juan Perez aprobó, mientras que Maria López no.
+
+
+
+
+
