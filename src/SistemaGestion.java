@@ -108,6 +108,8 @@ public class SistemaGestion {
 
                     }
 
+                    System.out.println("La materia no ha sido encontrada para este estudiante.");
+
                 }
                 else
                     System.out.println("Este estudiante no esta inscrito en ninguna materia.");

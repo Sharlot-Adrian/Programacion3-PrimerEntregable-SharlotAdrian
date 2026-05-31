@@ -140,7 +140,7 @@ public class Estudiante extends Persona {
         System.out.println("Matricula: " + getMatricula());
         System.out.println("Nombre: " + getNombre());
         System.out.println("Apellido: " + getApellido());
-        System.out.println("Promedio *base 4*: " + getPromedio());
+        System.out.printf("Promedio *base 4*: %.2f", getPromedio());
 
         if (getPromedio() >= 2){
             System.out.println("\n[Estudiante aprobado!]");
