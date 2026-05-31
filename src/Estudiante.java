@@ -6,6 +6,7 @@ public class Estudiante extends Persona {
     private int edad;
     private String carrera;
     private String fechaInscripcion;
+    private double promedio;
 
     private ArrayList<Materia> materiasCursadas = new ArrayList<>();
 
@@ -16,6 +17,8 @@ public class Estudiante extends Persona {
         setEdad(edad);
         setCarrera(carrera);
         setFechaInscripcion(fechaInscripcion);
+        this.promedio = 0.00;
+        
     }
 
     public ArrayList<Materia> getMateriasCursadas() {
@@ -38,6 +41,10 @@ public class Estudiante extends Persona {
         return fechaInscripcion;
     }
 
+    public double getPromedio(){
+        return promedio;
+    }
+
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
@@ -52,6 +59,10 @@ public class Estudiante extends Persona {
 
     public void setFechaInscripcion(String fechaInscripcion) {
         this.fechaInscripcion = fechaInscripcion;
+    }
+
+    public void setPromedio(double promedio){
+        this.promedio = promedio;
     }
 
     @Override
@@ -105,28 +116,28 @@ public class Estudiante extends Persona {
         return puntosSumatoria;
     }
 
-    public double calcPromedio (){
+    public void calcPromedio (){
         double sumaCreditos = 0;
         for (int i = 0; i < materiasCursadas.size(); i++) {
             sumaCreditos += materiasCursadas.get(i).getCantidadCreditos();
         }
-
-        if (sumaCreditos == 0)
-            return 0;
-
-        return calcularSumaPuntos()/sumaCreditos;
-
+        double resultado = calcularSumaPuntos()/sumaCreditos;
+        
+        if (resultado > 0){
+            setPromedio(resultado);
+        }
     }
 
     public void mostrarPerfilResumido() {
+        calcPromedio();
         System.out.println("\n[ INFORMACION DEL ESTUDIANTE: " + getNombre() + " " + getApellido() + "]");
         System.out.println("*------------------------------------------*");
         System.out.println("Matricula: " + getMatricula());
         System.out.println("Nombre: " + getNombre());
         System.out.println("Apellido: " + getApellido());
-        System.out.println("Promedio *base 4*: " + calcPromedio());
+        System.out.println("Promedio *base 4*: " + getPromedio());
 
-        if (calcPromedio() >= 3){
+        if (getPromedio() >= 2){
             System.out.println("\n[Estudiante aprovado!]");
         }
         else
