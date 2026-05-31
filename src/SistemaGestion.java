@@ -77,6 +77,8 @@ public class SistemaGestion {
                         break;
                     }
                 }
+                else
+                    System.out.println("No se encontro la matricula. ");
             }
         } else
             System.out.println("No hay materias disponibles en registro aun.");
@@ -105,6 +107,8 @@ public class SistemaGestion {
                     }
 
                 }
+                else
+                    System.out.println("La matricula no fue encontrada.");
             }
         } 
         else
