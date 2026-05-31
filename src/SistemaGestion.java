@@ -228,7 +228,7 @@ public class SistemaGestion {
                     break;
                 }
                 case 5: {
-                    System.out.println("\n[ ASIGNAR NOTA A ESTUDIANTE ]");
+                    System.out.println("\n[ Registrar Calificacion ]");
                     System.out.println("*------------------------------------------*");
 
                     System.out.println("Ingrese la matricula del estudiante: ");
@@ -254,7 +254,7 @@ public class SistemaGestion {
                         System.out.println("Ingrese el nombre: ");
                         String nombre = scanner.nextLine();
                         recorrerRegistroEstudiantesNombre(nombre);
-                    } else if (respuesta.equals("matricula")) {
+                    } else if (respuesta.equalsIgnoreCase("matricula")) {
                         System.out.println("Ingrese la matricula: ");
                         String matricula = scanner.nextLine();
                         recorrerRegistroEstudiantesMat(matricula);
