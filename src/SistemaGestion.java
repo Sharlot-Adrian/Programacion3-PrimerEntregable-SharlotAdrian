@@ -97,8 +97,8 @@ public class SistemaGestion {
                         for (int j = 0; j < registroEstudiantes.get(i).getMateriasCursadas().size(); j++ ){
                             if (registroEstudiantes.get(i).getMateriasCursadas().get(j).getCodigo().equals(codigo)){
                                 registroEstudiantes.get(i).getMateriasCursadas().get(j).setCalificacion(calif);
-                                System.out.println("Calificacion registrada.");
-                                break;
+                                System.out.println("Calificacion registrada. ");
+                                return;
                             }
 
                         }
