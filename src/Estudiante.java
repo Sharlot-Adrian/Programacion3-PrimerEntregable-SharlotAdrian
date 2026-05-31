@@ -121,11 +121,16 @@ public class Estudiante extends Persona {
         for (int i = 0; i < materiasCursadas.size(); i++) {
             sumaCreditos += materiasCursadas.get(i).getCantidadCreditos();
         }
-        double resultado = calcularSumaPuntos()/sumaCreditos;
         
-        if (resultado > 0){
-            setPromedio(resultado);
+        if (sumaCreditos == 0){
+            setPromedio(0);
+            return;
         }
+        
+        
+        double resultado = calcularSumaPuntos()/sumaCreditos;
+        setPromedio(resultado);
+        
     }
 
     public void mostrarPerfilResumido() {

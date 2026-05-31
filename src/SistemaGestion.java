@@ -29,7 +29,7 @@ public class SistemaGestion {
 
     public void recorrerRegistroEstudiantesNombre(String nombre) {
         for (int i = 0; i < registroEstudiantes.size(); i++) {
-            if (registroEstudiantes.get(i).getNombre().equalsIgnoreCase(nombre)){
+            if (registroEstudiantes.get(i).getNombre().equalsIgnoreCase(nombre)) {
                 System.out.println("\n[ El perfil pertenece a: ]");
                 registroEstudiantes.get(i).mostrarInformacion();
             }
@@ -38,7 +38,7 @@ public class SistemaGestion {
 
     public void recorrerRegistroEstudiantesMat(String matricula) {
         for (int i = 0; i < registroEstudiantes.size(); i++) {
-            if (registroEstudiantes.get(i).getMatricula().equals(matricula)){
+            if (registroEstudiantes.get(i).getMatricula().equals(matricula)) {
                 System.out.println("\n[ El perfil pertenece a: ]");
                 registroEstudiantes.get(i).mostrarInformacion();
             }
@@ -54,9 +54,8 @@ public class SistemaGestion {
             respuesta = scanner.nextLine().toUpperCase();
 
             if (respuesta.equals("SI"))
-                return new Materia(registroMaterias.get(i).getCodigo(), registroMaterias.get(i).getNombreMateria(), registroMaterias.get(i).getCantidadCreditos());
-            else
-                continue;
+                return registroMaterias.get(i);
+
         }
 
         return null;
@@ -77,41 +76,46 @@ public class SistemaGestion {
                         break;
                     }
                 }
-                
+
             }
         } else
             System.out.println("No hay materias disponibles en registro aun.");
 
     }
 
-    public void agregarCalificacion (String matricula, String codigo, double calif){
+    public void agregarCalificacion(String matricula, String codigo, double calif) {
 
-        if (!registroEstudiantes.isEmpty()) {
-            for (int i = 0; i < registroEstudiantes.size(); i++) {
+        if (registroEstudiantes.isEmpty()) {
+            System.out.println("El registro esta vacio");
+            return;
+        }
 
-                if (registroEstudiantes.get(i).getMatricula().equals(matricula)) {
-                    System.out.println("Matricula encontrada! ");
+        for (int i = 0; i < registroEstudiantes.size(); i++) {
 
-                    if(!registroEstudiantes.get(i).getMateriasCursadas().isEmpty()){
+            if (registroEstudiantes.get(i).getMatricula().equals(matricula)) {
+                System.out.println("Matricula encontrada! ");
 
-                        for (int j = 0; j < registroEstudiantes.get(i).getMateriasCursadas().size(); j++ ){
-                            if (registroEstudiantes.get(i).getMateriasCursadas().get(j).getCodigo().equals(codigo)){
-                                registroEstudiantes.get(i).getMateriasCursadas().get(j).setCalificacion(calif);
-                                System.out.println("Calificacion registrada. ");
-                                return;
-                            }
+                if (!registroEstudiantes.get(i).getMateriasCursadas().isEmpty()) {
 
+                    for (int j = 0; j < registroEstudiantes.get(i).getMateriasCursadas().size(); j++) {
+                        if (registroEstudiantes.get(i).getMateriasCursadas().get(j).getCodigo().equals(codigo)) {
+
+                            registroEstudiantes.get(i).getMateriasCursadas().get(j).setCalificacion(calif);
+                            System.out.println("Calificacion registrada. ");
+                            registroEstudiantes.get(i).calcPromedio();
+                            return;
                         }
 
                     }
 
                 }
-                
+                else
+                    System.out.println("Este estudiante no esta inscrito en ninguna materia.");
+
             }
-            
-        } 
-        else
-            System.out.println("No hay estudiantes disponibles en registro aun.");
+
+        }
+
     }
 
     public void menu() {
@@ -138,7 +142,7 @@ public class SistemaGestion {
             scanner.nextLine();
 
             switch (opcion) {
-                case 1: { 
+                case 1: {
 
                     System.out.println("\n[ REGISTRAR ESTUDIANTE ]");
                     System.out.println("*------------------------------------------*");
@@ -148,7 +152,7 @@ public class SistemaGestion {
                     System.out.println("Ingrese el apellido del estudiante: ");
                     String apellido = scanner.nextLine();
 
-                    System.out.println("Ingrese la matricula del estudiante");
+                    System.out.println("Ingrese la matricula del estudiante: ");
                     String matricula = scanner.nextLine();
 
                     System.out.println("Ingrese la edad del estudiante: ");
@@ -161,12 +165,13 @@ public class SistemaGestion {
                     System.out.println("Ingrese la fecha de inscripcion del estudiante: ");
                     String fechaInscripcion = scanner.nextLine();
 
-                    registroEstudiantes.add(new Estudiante(nombre, apellido, matricula, edad, carrera, fechaInscripcion));
+                    registroEstudiantes
+                            .add(new Estudiante(nombre, apellido, matricula, edad, carrera, fechaInscripcion));
                     System.out.println("\n[ Se ha agregado un estudiante satisfactoriamente!]");
                     break;
                 }
                 case 2: {
-          
+
                     System.out.println("\n[ REGISTRAR PROFESOR ]");
                     System.out.println("*------------------------------------------*");
                     System.out.println("Ingrese el nombre del profesor: ");
@@ -175,7 +180,7 @@ public class SistemaGestion {
                     System.out.println("Ingrese el apellido del profesor: ");
                     String apellido = scanner.nextLine();
 
-                    System.out.println("Ingrese el codigo del profesor");
+                    System.out.println("Ingrese el codigo del profesor: ");
                     String codigo = scanner.nextLine();
 
                     System.out.println("Ingrese la especialidad del profesor: ");
@@ -191,7 +196,7 @@ public class SistemaGestion {
                     break;
                 }
                 case 3: {
-            
+
                     System.out.println("\n[ REGISTRAR MATERIA ]");
                     System.out.println("*------------------------------------------*");
                     System.out.println("Ingrese el codigo de la materia: ");
@@ -233,7 +238,7 @@ public class SistemaGestion {
                     System.out.println("Ingrese la calificacion: ");
                     double calif = scanner.nextDouble();
                     scanner.nextLine();
-                    
+
                     agregarCalificacion(matricula, codigo, calif);
 
                     break;
@@ -243,12 +248,11 @@ public class SistemaGestion {
                     System.out.println("Desea buscar por nombre o matricula?");
                     String respuesta = scanner.nextLine();
 
-                    if (respuesta.equalsIgnoreCase("nombre")){
+                    if (respuesta.equalsIgnoreCase("nombre")) {
                         System.out.println("Ingrese el nombre: ");
                         String nombre = scanner.nextLine();
                         recorrerRegistroEstudiantesNombre(nombre);
-                    }
-                    else if (respuesta.equals("matricula")){
+                    } else if (respuesta.equals("matricula")) {
                         System.out.println("Ingrese la matricula: ");
                         String matricula = scanner.nextLine();
                         recorrerRegistroEstudiantesMat(matricula);
