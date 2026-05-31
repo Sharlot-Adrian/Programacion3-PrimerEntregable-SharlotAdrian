@@ -77,8 +77,7 @@ public class SistemaGestion {
                         break;
                     }
                 }
-                else
-                    System.out.println("No se encontro la matricula. ");
+                
             }
         } else
             System.out.println("No hay materias disponibles en registro aun.");
@@ -107,9 +106,9 @@ public class SistemaGestion {
                     }
 
                 }
-                else
-                    System.out.println("La matricula no fue encontrada.");
+                
             }
+            
         } 
         else
             System.out.println("No hay estudiantes disponibles en registro aun.");
@@ -249,7 +248,7 @@ public class SistemaGestion {
                         String nombre = scanner.nextLine();
                         recorrerRegistroEstudiantesNombre(nombre);
                     }
-                    else if (respuesta.equalsIgnoreCase("matricula")){
+                    else if (respuesta.equals("matricula")){
                         System.out.println("Ingrese la matricula: ");
                         String matricula = scanner.nextLine();
                         recorrerRegistroEstudiantesMat(matricula);
